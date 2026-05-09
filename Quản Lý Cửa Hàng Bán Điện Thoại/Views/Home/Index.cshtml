@@ -1,0 +1,149 @@
+﻿@{
+    ViewBag.Title = "Giới thiệu nhóm";
+}
+
+<!-- Google Font -->
+<link href="https://fonts.googleapis.com/css2?family=Segoe+UI:wght@300;400;600&display=swap" rel="stylesheet">
+
+<style>
+    body {
+        font-family: "Segoe UI", sans-serif;
+        background: #f4f6f9;
+    }
+
+    .hero {
+        background: linear-gradient(135deg, #0d6efd, #0a58ca);
+        color: white;
+        padding: 60px 20px;
+        border-radius: 15px;
+        text-align: center;
+        box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+    }
+
+    .card {
+        border: none;
+        border-radius: 15px;
+        transition: 0.3s;
+        overflow: hidden;
+    }
+
+        .card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 12px 25px rgba(0,0,0,0.2);
+        }
+
+    .avatar {
+        width: 90px;
+        height: 90px;
+        border-radius: 50%;
+        object-fit: cover;
+        margin-top: -50px;
+        border: 4px solid white;
+        background: #ddd;
+    }
+
+    .role {
+        font-size: 13px;
+        color: gray;
+    }
+
+    ul {
+        padding-left: 18px;
+        font-size: 14px;
+    }
+
+    .navbar {
+        box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    }
+</style>
+
+<!-- Navbar -->
+<nav class="navbar navbar-dark bg-dark">
+    <div class="container">
+        <a class="navbar-brand fw-bold">👨‍💻 Nhóm CNTT K18A</a>
+    </div>
+</nav>
+
+<div class="container mt-4">
+
+    <!-- Hero -->
+    <div class="hero">
+        <h2>GIỚI THIỆU THÀNH VIÊN NHÓM</h2>
+        <p>Đồ án Website bán điện thoại ASP.NET MVC</p>
+    </div>
+
+    <!-- Members -->
+    <div class="row mt-4">
+
+        <!-- A -->
+        <div class="col-md-3">
+            <div class="card text-center p-3">
+               
+                <h5 class="mt-3">Nguyễn Văn A</h5>
+                <div class="role">CNTT K18A</div>
+                <hr>
+                <b>Giao diện Home</b>
+                <ul class="text-start mt-2">
+                    <li>Layout trang chủ</li>
+                    <li>Danh sách sản phẩm</li>
+                    <li>Bootstrap responsive</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- B -->
+        <div class="col-md-3">
+            <div class="card text-center p-3">
+                
+                <h5 class="mt-3">Trần Thị B</h5>
+                <div class="role">CNTT K18A</div>
+                <hr>
+                <b>Database</b>
+                <ul class="text-start mt-2">
+                    <li>Tạo database</li>
+                    <li>Bảng sản phẩm</li>
+                    <li>Dữ liệu mẫu</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- C -->
+        <div class="col-md-3">
+            <div class="card text-center p-3">
+                
+                <h5 class="mt-3">Lê Văn C</h5>
+                <div class="role">CNTT K18A</div>
+                <hr>
+                <b>Backend MVC</b>
+                <ul class="text-start mt-2">
+                    <li>HomeController</li>
+                    <li>SanPhamController</li>
+                    <li>Load dữ liệu</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- D -->
+        <div class="col-md-3">
+            <div class="card text-center p-3">
+                
+                <h5 class="mt-3">Phạm Thị D</h5>
+                <div class="role">CNTT K18A</div>
+                <hr>
+                <b>Test & Báo cáo</b>
+                <ul class="text-start mt-2">
+                    <li>Test giao diện</li>
+                    <li>Fix lỗi hiển thị</li>
+                    <li>Viết báo cáo</li>
+                </ul>
+            </div>
+        </div>
+
+    </div>
+
+    <!-- Footer -->
+    <div class="text-center mt-4 p-3 bg-success text-white rounded">
+        ✔ Nhóm đã hoàn thành website bán điện thoại bằng ASP.NET MVC
+    </div>
+
+</div>

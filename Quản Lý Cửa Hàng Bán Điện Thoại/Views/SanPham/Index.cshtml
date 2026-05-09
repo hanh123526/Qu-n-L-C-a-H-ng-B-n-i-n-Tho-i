@@ -1,0 +1,563 @@
+﻿@model IEnumerable<Quản_Lý_Cửa_Hàng_Bán_Điện_Thoại.Models.SanPham>
+
+@{
+    ViewBag.Title = "Phone Store";
+    Layout = "~/Views/Shared/_LayoutUser.cshtml";
+}
+
+<!-- MAIN HEADER -->
+<header>
+
+    <!-- TOP HEADER -->
+    <div class="p-3 text-center bg-white border-bottom">
+
+        <div class="container">
+
+            <div class="row gy-3 align-items-center">
+
+                <!-- LOGO -->
+                <div class="col-lg-2 col-sm-4 col-4">
+
+                    <a href="@Url.Action("Index","SanPham")"
+                       class="float-start text-decoration-none">
+
+                        <h3 class="text-primary fw-bold">
+                            IT4People
+                        </h3>
+
+                    </a>
+
+                </div>
+
+                <!-- ACCOUNT -->
+                <div class="order-lg-last col-lg-5 col-sm-8 col-8">
+
+                    <div class="d-flex float-end">
+
+                        <a href="#"
+                           class="me-2 border rounded py-2 px-3 nav-link d-flex align-items-center">
+
+                            <i class="fas fa-user-alt me-2"></i>
+                            <span>Login</span>
+
+                        </a>
+
+                        <a href="#"
+                           class="me-2 border rounded py-2 px-3 nav-link d-flex align-items-center">
+
+                            <i class="fas fa-heart me-2"></i>
+                            <span>Wishlist</span>
+
+                        </a>
+
+                        <a href="@Url.Action("GioHang","GioHang")"
+                           class="border rounded py-2 px-3 nav-link d-flex align-items-center">
+
+                            <i class="fas fa-shopping-cart me-2"></i>
+                            <span>Cart</span>
+
+                        </a>
+
+                    </div>
+
+                </div>
+
+                <!-- SEARCH -->
+                <div class="col-lg-5 col-md-12 col-12">
+
+                    <div class="input-group">
+
+                        <input type="search"
+                               class="form-control"
+                               placeholder="Tìm kiếm điện thoại..." />
+
+                        <button type="button"
+                                class="btn btn-primary">
+
+                            <i class="fas fa-search"></i>
+
+                        </button>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+    <!-- NAVBAR -->
+    <nav class="navbar navbar-expand-lg navbar-light bg-white shadow-sm">
+
+        <div class="container">
+
+            <button class="navbar-toggler"
+                    type="button"
+                    data-bs-toggle="collapse"
+                    data-bs-target="#navbarPhone">
+
+                <span class="navbar-toggler-icon"></span>
+
+            </button>
+
+            <div class="collapse navbar-collapse"
+                 id="navbarPhone">
+
+                <ul class="navbar-nav me-auto">
+
+                    <li class="nav-item">
+                        <a class="nav-link fw-bold"
+                           href="#">
+                            iPhone
+                        </a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a class="nav-link fw-bold"
+                           href="#">
+                            Samsung
+                        </a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a class="nav-link fw-bold"
+                           href="#">
+                            Xiaomi
+                        </a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a class="nav-link fw-bold"
+                           href="#">
+                            OPPO
+                        </a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a class="nav-link fw-bold"
+                           href="#">
+                            Vivo
+                        </a>
+                    </li>
+
+                </ul>
+
+            </div>
+
+        </div>
+
+    </nav>
+
+    <!-- BANNER -->
+    <div class="bg-dark text-white py-5">
+
+        <div class="container py-5">
+
+            <h1 class="fw-bold">
+                Smartphone Chính Hãng <br />
+                Giá Tốt Nhất 2026
+            </h1>
+
+            <p class="mt-3 fs-5">
+                iPhone, Samsung, Xiaomi, OPPO, Vivo
+            </p>
+
+            <a href="#sanpham"
+               class="btn btn-outline-light btn-lg">
+
+                Khám phá ngay
+
+            </a>
+
+        </div>
+
+    </div>
+
+</header>
+
+<!-- PRODUCTS -->
+<section id="sanpham">
+
+    <div class="container my-5">
+
+        <h2 class="text-center text-primary fw-bold mb-5">
+
+            DANH SÁCH ĐIỆN THOẠI MỚI NHẤT
+
+        </h2>
+
+        <div class="row">
+
+            @foreach (var sp in Model)
+            {
+                <div class="col-lg-4 col-md-6 mb-4">
+
+                    <div class="card shadow-lg h-100 border-0"
+                         style="border-radius:20px; overflow:hidden;">
+
+                        <!-- IMAGE -->
+                        <a href="@Url.Action("ChiTiet",
+                                             "SanPham",
+                                             new { id = sp.MaSP })">
+
+                            <img src="~/Images/@sp.HinhAnh"
+                                 class="card-img-top"
+                                 alt="@sp.TenSP"
+                                 style="height:300px;
+                                        object-fit:cover;" />
+
+                        </a>
+
+                        <!-- BODY -->
+                        <div class="card-body d-flex flex-column">
+
+                            <!-- NAME -->
+                            <h4 class="text-center fw-bold text-dark">
+
+                                @sp.TenSP
+
+                            </h4>
+
+                            <!-- PRICE -->
+                            <h3 class="text-danger text-center mt-2">
+
+                                @String.Format("{0:N0}", sp.Gia) VNĐ
+
+                            </h3>
+
+                            <hr />
+
+                            <!-- TECHNICAL INFO -->
+                            <div style="font-size:15px; min-height:260px;">
+
+                                @if (sp.TenSP.Contains("iPhone 15"))
+                                {
+                                    <ul>
+                                        <li><b>Hệ điều hành:</b> iOS 26</li>
+                                        <li><b>Chip xử lý:</b> Apple A19 Pro 6 nhân</li>
+                                        <li><b>Tốc độ CPU:</b> Hãng không công bố</li>
+                                        <li><b>GPU:</b> Apple GPU 6 nhân</li>
+                                        <li><b>RAM:</b> Hãng không công bố</li>
+                                        <li><b>Bộ nhớ:</b> 256 GB</li>
+                                        <li><b>Khả dụng:</b> 241 GB</li>
+                                    </ul>
+                                }
+
+                                else if (sp.TenSP.Contains("Samsung S24"))
+                                {
+                                    <ul>
+                                        <li><b>Hệ điều hành:</b> Android 16</li>
+                                        <li><b>Chip xử lý:</b> Exynos 1680 8 nhân</li>
+                                        <li>
+                                            <b>Tốc độ CPU:</b>
+                                            1 nhân 2.9 GHz,
+                                            3 nhân 2.6 GHz &
+                                            4 nhân 1.95 GHz
+                                        </li>
+                                        <li><b>GPU:</b> Xclipse 550</li>
+                                        <li><b>RAM:</b> 8 GB</li>
+                                        <li><b>Bộ nhớ:</b> 128 GB</li>
+                                        <li><b>Khả dụng:</b> 113 GB</li>
+                                        <li><b>Danh bạ:</b> Không giới hạn</li>
+                                    </ul>
+                                }
+
+                                else if (sp.TenSP.Contains("Xiaomi 14"))
+                                {
+                                    <ul>
+                                        <li><b>Hệ điều hành:</b> Android 16</li>
+                                        <li>
+                                            <b>Chip xử lý:</b>
+                                            Snapdragon 8 Elite Gen 5 8 nhân
+                                        </li>
+                                        <li>
+                                            <b>Tốc độ CPU:</b>
+                                            2 nhân 4.6 GHz &
+                                            6 nhân 3.62 GHz
+                                        </li>
+                                        <li><b>GPU:</b> Adreno 840</li>
+                                        <li><b>RAM:</b> 16 GB</li>
+                                        <li><b>Bộ nhớ:</b> 512 GB</li>
+                                        <li><b>Khả dụng:</b> 490 GB</li>
+                                        <li><b>Danh bạ:</b> Không giới hạn</li>
+                                    </ul>
+                                }
+
+                                else if (sp.TenSP.Contains("Oppo Reno 11"))
+                                {
+                                    <ul>
+                                        <li><b>Hệ điều hành:</b> ColorOS 16 (Android 16)</li>
+                                        <li><b>Chip xử lý:</b> Snapdragon 7 Gen 4 8 nhân</li>
+                                        <li><b>Tốc độ CPU:</b> 2.8 GHz</li>
+                                        <li><b>GPU:</b> Adreno 722</li>
+                                        <li><b>RAM:</b> 8 GB</li>
+                                        <li><b>Bộ nhớ:</b> 256 GB</li>
+                                        <li><b>Khả dụng:</b> 221 GB</li>
+                                        <li><b>Danh bạ:</b> Không giới hạn</li>
+                                    </ul>
+                                }
+
+                                else if (sp.TenSP.Contains("Vivo V30"))
+                                {
+                                    <ul>
+                                        <li><b>Hệ điều hành:</b> OriginOS 6</li>
+                                        <li>
+                                            <b>Chip xử lý:</b>
+                                            MediaTek Dimensity 7360-Turbo 8 nhân
+                                        </li>
+                                        <li>
+                                            <b>Tốc độ CPU:</b>
+                                            4 nhân 2.5 GHz &
+                                            4 nhân 2.0 GHz
+                                        </li>
+                                        <li><b>GPU:</b> Mali-G615</li>
+                                        <li><b>RAM:</b> 8 GB</li>
+                                        <li><b>Bộ nhớ:</b> 256 GB</li>
+                                        <li><b>Khả dụng:</b> 230 GB</li>
+                                        <li><b>Danh bạ:</b> Không giới hạn</li>
+                                    </ul>
+                                }
+
+                                else if (sp.TenSP.Contains("Realme GT"))
+                                {
+                                    <ul>
+                                        <li><b>Hệ điều hành:</b> ColorOS 16 (Android 16)</li>
+                                        <li><b>Chip xử lý:</b> Snapdragon 7 Gen 4 8 nhân</li>
+                                        <li><b>Tốc độ CPU:</b> 2.8 GHz</li>
+                                        <li><b>GPU:</b> Adreno 722</li>
+                                        <li><b>RAM:</b> 8 GB</li>
+                                        <li><b>Bộ nhớ:</b> 256 GB</li>
+                                        <li><b>Khả dụng:</b> 221 GB</li>
+                                        <li><b>Danh bạ:</b> Không giới hạn</li>
+                                    </ul>
+                                }
+
+                                else if (sp.TenSP.Contains("Nokia G22"))
+                                {
+                                    <ul>
+                                        <li><b>Hệ điều hành:</b> Android 16 (Stock Android)</li>
+                                        <li><b>Chip xử lý:</b> Unisoc T700 8 nhân</li>
+                                        <li><b>Tốc độ CPU:</b> 2.2 GHz</li>
+                                        <li><b>GPU:</b> Mali-G52</li>
+                                        <li><b>RAM:</b> 6 GB</li>
+                                        <li><b>Bộ nhớ:</b> 128 GB</li>
+                                        <li><b>Khả dụng:</b> 110 GB</li>
+                                        <li><b>Danh bạ:</b> Không giới hạn</li>
+                                    </ul>
+                                }
+
+                                else if (sp.TenSP.Contains("Asus ROG Phone"))
+                                {
+                                    <ul>
+                                        <li><b>Hệ điều hành:</b> ROG UI (Android 16)</li>
+                                        <li><b>Chip xử lý:</b> Snapdragon 8 Gen 3 8 nhân</li>
+                                        <li><b>Tốc độ CPU:</b> 3.3 GHz</li>
+                                        <li><b>GPU:</b> Adreno 750</li>
+                                        <li><b>RAM:</b> 12 GB</li>
+                                        <li><b>Bộ nhớ:</b> 512 GB</li>
+                                        <li><b>Khả dụng:</b> 470 GB</li>
+                                        <li><b>Danh bạ:</b> Không giới hạn</li>
+                                    </ul>
+                                }
+
+                                else if (sp.TenSP.Contains("Sony Xperia 1"))
+                                {
+                                    <ul>
+                                        <li><b>Hệ điều hành:</b> Xperia UI (Android 16)</li>
+                                        <li><b>Chip xử lý:</b> Snapdragon 8 Gen 2 8 nhân</li>
+                                        <li><b>Tốc độ CPU:</b> 3.2 GHz</li>
+                                        <li><b>GPU:</b> Adreno 740</li>
+                                        <li><b>RAM:</b> 12 GB</li>
+                                        <li><b>Bộ nhớ:</b> 256 GB</li>
+                                        <li><b>Khả dụng:</b> 230 GB</li>
+                                        <li><b>Danh bạ:</b> Không giới hạn</li>
+                                    </ul>
+                                }
+                                else if (sp.TenSP.Contains("Huawei P60"))
+                                {
+                                    <ul>
+                                        <li><b>Hệ điều hành:</b> HarmonyOS 3 (Android 13 tùy thị trường)</li>
+                                        <li><b>Chip xử lý:</b> Snapdragon 8+ Gen 1 4G 8 nhân</li>
+                                        <li><b>Tốc độ CPU:</b> 3.2 GHz</li>
+                                        <li><b>GPU:</b> Adreno 730</li>
+                                        <li><b>RAM:</b> 8 GB</li>
+                                        <li><b>Bộ nhớ:</b> 256 GB</li>
+                                        <li><b>Khả dụng:</b> 231 GB</li>
+                                        <li><b>Danh bạ:</b> Không giới hạn</li>
+                                    </ul>
+                                }
+
+                            </div>
+
+                            <!-- STOCK -->
+                            <p class="text-center">
+
+                                Còn lại:
+
+                                <span class="text-success fw-bold">
+
+                                    @sp.SoLuongTon sản phẩm
+
+                                </span>
+
+                            </p>
+
+                            <!-- STAR -->
+                            <div class="text-center text-warning fs-5">
+
+                                ★★★★★
+
+                            </div>
+
+                            <!-- BUTTON -->
+                            <div class="mt-auto text-center">
+
+                                <a href="@Url.Action("ChiTiet",
+                                                     "SanPham",
+                                                     new { id = sp.MaSP })"
+                                   class="btn btn-primary me-2">
+
+                                    Chi tiết
+
+                                </a>
+
+                                <a href="@Url.Action("ThemGioHang",
+                                                     "GioHang",
+                                                     new {
+                                                        iMaSP = sp.MaSP,
+                                                        strURL = Request.Url.ToString()
+                                                     })"
+                                   class="btn btn-success">
+
+                                    Thêm giỏ hàng
+
+                                </a>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                </div>
+            }
+
+        </div>
+
+    </div>
+
+</section>
+
+<!-- FEATURES -->
+<section class="bg-light py-5">
+
+    <div class="container">
+
+        <div class="row text-center">
+
+            <div class="col-lg-4 mb-4">
+
+                <i class="fas fa-mobile-alt fa-3x text-primary mb-3"></i>
+
+                <h5 class="fw-bold">
+                    Điện thoại mới nhất
+                </h5>
+
+                <p>
+                    Cập nhật smartphone mới liên tục
+                </p>
+
+            </div>
+
+            <div class="col-lg-4 mb-4">
+
+                <i class="fas fa-shipping-fast fa-3x text-primary mb-3"></i>
+
+                <h5 class="fw-bold">
+                    Giao hàng nhanh
+                </h5>
+
+                <p>
+                    Giao hàng toàn quốc 24h
+                </p>
+
+            </div>
+
+            <div class="col-lg-4 mb-4">
+
+                <i class="fas fa-shield-alt fa-3x text-primary mb-3"></i>
+
+                <h5 class="fw-bold">
+                    Bảo hành chính hãng
+                </h5>
+
+                <p>
+                    Cam kết sản phẩm chính hãng 100%
+                </p>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+<!-- FOOTER -->
+<footer class="bg-dark text-white pt-5 pb-4">
+
+    <div class="container">
+
+        <div class="row">
+
+            <div class="col-md-4">
+
+                <h5 class="fw-bold mb-4">
+                    IT4People
+                </h5>
+
+                <p>
+                    Cửa hàng điện thoại uy tín,
+                    giá rẻ, chính hãng.
+                </p>
+
+            </div>
+
+            <div class="col-md-4">
+
+                <h5 class="fw-bold mb-4">
+                    Hỗ trợ
+                </h5>
+
+                <p>Trung tâm trợ giúp</p>
+                <p>Chính sách bảo hành</p>
+                <p>Chính sách vận chuyển</p>
+
+            </div>
+
+            <div class="col-md-4">
+
+                <h5 class="fw-bold mb-4">
+                    Liên hệ
+                </h5>
+
+                <p>Email: it4people@gmail.com</p>
+                <p>Phone: 0123456789</p>
+
+            </div>
+
+        </div>
+
+        <hr />
+
+        <div class="text-center">
+
+            © 2026 IT4People
+
+        </div>
+
+    </div>
+
+</footer>

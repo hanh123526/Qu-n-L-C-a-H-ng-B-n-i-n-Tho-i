@@ -1,0 +1,426 @@
+﻿@model Quản_Lý_Cửa_Hàng_Bán_Điện_Thoại.Models.SanPham
+
+@{
+    ViewBag.Title = "Chi Tiết Sản Phẩm";
+    Layout = "~/Views/Shared/_LayoutUser.cshtml";
+}
+
+<div class="container mt-5">
+
+    <div class="row">
+
+        <!-- HÌNH ẢNH -->
+        <div class="col-md-5">
+
+            <div class="card shadow">
+
+                <img src="~/Images/@Model.HinhAnh"
+                     class="img-fluid"
+                     style="padding:20px;
+                            height:500px;
+                            object-fit:contain;" />
+
+            </div>
+
+        </div>
+
+        <!-- THÔNG TIN -->
+        <div class="col-md-7">
+
+            <h2 class="fw-bold text-dark">
+                @Model.TenSP
+            </h2>
+
+            <!-- GIÁ -->
+            <div class="mt-3 mb-3">
+
+                <span style="font-size:32px;
+                             color:red;
+                             font-weight:bold;">
+
+                    @String.Format("{0:N0}", Model.Gia) VNĐ
+
+                </span>
+
+            </div>
+
+            <!-- ĐÁNH GIÁ -->
+            <div style="font-size:22px; color:orange;">
+
+                ★★★★★
+
+                <span class="text-dark"
+                      style="font-size:16px;">
+
+                    (150 đánh giá)
+
+                </span>
+
+            </div>
+
+            <hr />
+
+            <!-- THÔNG SỐ -->
+            <h4 class="text-primary mb-3">
+                THÔNG SỐ KỸ THUẬT
+            </h4>
+
+            <table class="table table-bordered table-hover">
+
+                @* ================= iPHONE 17 ================= *@
+                @if (Model.TenSP.Contains("iPhone 17"))
+                {
+                    <tr>
+                        <th>Hệ điều hành</th>
+                        <td>iOS 26</td>
+                    </tr>
+
+                    <tr>
+                        <th>Chip xử lý (CPU)</th>
+                        <td>Apple A19 Pro 6 nhân</td>
+                    </tr>
+
+                    <tr>
+                        <th>Tốc độ CPU</th>
+                        <td>Hãng không công bố</td>
+                    </tr>
+
+                    <tr>
+                        <th>Chip đồ họa (GPU)</th>
+                        <td>Apple GPU 6 nhân</td>
+                    </tr>
+
+                    <tr>
+                        <th>RAM</th>
+                        <td>Hãng không công bố</td>
+                    </tr>
+
+                    <tr>
+                        <th>Dung lượng lưu trữ</th>
+                        <td>256 GB</td>
+                    </tr>
+
+                    <tr>
+                        <th>Dung lượng còn lại</th>
+                        <td>Khoảng 241 GB</td>
+                    </tr>
+                }
+
+                @* ================= GALAXY A57 ================= *@
+                else if (Model.TenSP.Contains("Galaxy A57"))
+                {
+                    <tr>
+                        <th>Hệ điều hành</th>
+                        <td>Android 16</td>
+                    </tr>
+
+                    <tr>
+                        <th>Chip xử lý (CPU)</th>
+                        <td>Exynos 1680 8 nhân</td>
+                    </tr>
+
+                    <tr>
+                        <th>Tốc độ CPU</th>
+                        <td>
+                            1 nhân 2.9 GHz,
+                            3 nhân 2.6 GHz &
+                            4 nhân 1.95 GHz
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <th>Chip đồ họa (GPU)</th>
+                        <td>Xclipse 550</td>
+                    </tr>
+
+                    <tr>
+                        <th>RAM</th>
+                        <td>8 GB</td>
+                    </tr>
+
+                    <tr>
+                        <th>Dung lượng lưu trữ</th>
+                        <td>128 GB</td>
+                    </tr>
+
+                    <tr>
+                        <th>Dung lượng còn lại</th>
+                        <td>Khoảng 113 GB</td>
+                    </tr>
+
+                    <tr>
+                        <th>Danh bạ</th>
+                        <td>Không giới hạn</td>
+                    </tr>
+                }
+
+                @* ================= S26 ULTRA ================= *@
+                else if (Model.TenSP.Contains("S26 Ultra"))
+                {
+                    <tr>
+                        <th>Hệ điều hành</th>
+                        <td>Android 16</td>
+                    </tr>
+
+                    <tr>
+                        <th>Chip xử lý (CPU)</th>
+                        <td>
+                            Qualcomm Snapdragon
+                            8 Elite Gen 5 For Galaxy
+                            8 nhân
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <th>Tốc độ CPU</th>
+                        <td>
+                            2 nhân 4.74 GHz &
+                            6 nhân 3.62 GHz
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <th>Chip đồ họa (GPU)</th>
+                        <td>Adreno 840</td>
+                    </tr>
+
+                    <tr>
+                        <th>RAM</th>
+                        <td>12 GB</td>
+                    </tr>
+
+                    <tr>
+                        <th>Dung lượng lưu trữ</th>
+                        <td>256 GB</td>
+                    </tr>
+
+                    <tr>
+                        <th>Dung lượng còn lại</th>
+                        <td>Khoảng 223 GB</td>
+                    </tr>
+
+                    <tr>
+                        <th>Danh bạ</th>
+                        <td>Không giới hạn</td>
+                    </tr>
+                }
+
+                @* ================= OPPO RENO15 ================= *@
+                else if (Model.TenSP.Contains("Reno15"))
+                {
+                    <tr>
+                        <th>Hệ điều hành</th>
+                        <td>ColorOS 16 (Android 16)</td>
+                    </tr>
+
+                    <tr>
+                        <th>Chip xử lý (CPU)</th>
+                        <td>Snapdragon 7 Gen 4 8 nhân</td>
+                    </tr>
+
+                    <tr>
+                        <th>Tốc độ CPU</th>
+                        <td>2.8 GHz</td>
+                    </tr>
+
+                    <tr>
+                        <th>Chip đồ họa (GPU)</th>
+                        <td>Adreno 722</td>
+                    </tr>
+
+                    <tr>
+                        <th>RAM</th>
+                        <td>8 GB</td>
+                    </tr>
+
+                    <tr>
+                        <th>Dung lượng lưu trữ</th>
+                        <td>256 GB</td>
+                    </tr>
+
+                    <tr>
+                        <th>Dung lượng còn lại</th>
+                        <td>Khoảng 221 GB</td>
+                    </tr>
+
+                    <tr>
+                        <th>Danh bạ</th>
+                        <td>Không giới hạn</td>
+                    </tr>
+                }
+
+                @* ================= VIVO V70 ================= *@
+                else if (Model.TenSP.Contains("V70"))
+                {
+                    <tr>
+                        <th>Hệ điều hành</th>
+                        <td>OriginOS 6</td>
+                    </tr>
+
+                    <tr>
+                        <th>Chip xử lý (CPU)</th>
+                        <td>
+                            MediaTek Dimensity
+                            7360-Turbo 8 nhân
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <th>Tốc độ CPU</th>
+                        <td>
+                            4 nhân 2.5 GHz &
+                            4 nhân 2.0 GHz
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <th>Chip đồ họa (GPU)</th>
+                        <td>Mali-G615</td>
+                    </tr>
+
+                    <tr>
+                        <th>RAM</th>
+                        <td>8 GB</td>
+                    </tr>
+
+                    <tr>
+                        <th>Dung lượng lưu trữ</th>
+                        <td>256 GB</td>
+                    </tr>
+
+                    <tr>
+                        <th>Dung lượng còn lại</th>
+                        <td>Khoảng 230 GB</td>
+                    </tr>
+
+                    <tr>
+                        <th>Danh bạ</th>
+                        <td>Không giới hạn</td>
+                    </tr>
+                }
+
+                @* ================= XIAOMI 17 ULTRA ================= *@
+                else if (Model.TenSP.Contains("Xiaomi"))
+                {
+                    <tr>
+                        <th>Hệ điều hành</th>
+                        <td>Android 16</td>
+                    </tr>
+
+                    <tr>
+                        <th>Chip xử lý (CPU)</th>
+                        <td>
+                            Qualcomm Snapdragon
+                            8 Elite Gen 5 8 nhân
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <th>Tốc độ CPU</th>
+                        <td>
+                            2 nhân 4.6 GHz &
+                            6 nhân 3.62 GHz
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <th>Chip đồ họa (GPU)</th>
+                        <td>Adreno 840</td>
+                    </tr>
+
+                    <tr>
+                        <th>RAM</th>
+                        <td>16 GB</td>
+                    </tr>
+
+                    <tr>
+                        <th>Dung lượng lưu trữ</th>
+                        <td>512 GB</td>
+                    </tr>
+
+                    <tr>
+                        <th>Dung lượng còn lại</th>
+                        <td>Khoảng 490 GB</td>
+                    </tr>
+
+                    <tr>
+                        <th>Danh bạ</th>
+                        <td>Không giới hạn</td>
+                    </tr>
+                }
+
+            </table>
+
+            <!-- MÔ TẢ -->
+            <div class="mt-4">
+
+                <h4 class="text-primary">
+                    Mô tả sản phẩm
+                </h4>
+
+                <p style="font-size:16px;
+                          line-height:30px;
+                          text-align:justify;">
+
+                    @Model.MoTa
+
+                </p>
+
+            </div>
+
+            <!-- NÚT -->
+            <div class="mt-4">
+
+                <a href="@Url.Action("ThemGioHang",
+                                     "GioHang",
+                                     new {
+                                        iMaSP = Model.MaSP,
+                                        strURL = Request.Url.ToString()
+                                     })"
+                   class="btn btn-success btn-lg">
+
+                    🛒 Thêm vào giỏ hàng
+
+                </a>
+
+                <a href="#"
+                   class="btn btn-danger btn-lg">
+
+                    ⚡ Mua ngay
+
+                </a>
+
+            </div>
+
+            <!-- KHUYẾN MÃI -->
+            <div class="card mt-4 shadow-sm">
+
+                <div class="card-body">
+
+                    <h5 class="text-success">
+                        🎁 Khuyến mãi đặc biệt
+                    </h5>
+
+                    <ul style="line-height:30px;">
+
+                        <li>Tặng ốp lưng cao cấp</li>
+
+                        <li>Miễn phí dán cường lực</li>
+
+                        <li>Giảm 10% khi mua phụ kiện</li>
+
+                        <li>Hỗ trợ trả góp 0%</li>
+
+                        <li>Miễn phí giao hàng toàn quốc</li>
+
+                    </ul>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</div>

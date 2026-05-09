@@ -1,0 +1,90 @@
+﻿@{
+    ViewBag.Title = "Đăng ký";
+    Layout = "~/Views/Shared/_LayoutUser.cshtml";
+}
+
+<style>
+    .auth-wrapper {
+        height: 100vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background: linear-gradient(135deg, #74ebd5, #9face6);
+    }
+
+    .auth-card {
+        width: 500px;
+        background: #fff;
+        padding: 30px;
+        border-radius: 15px;
+        box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+    }
+
+    .auth-title {
+        text-align: center;
+        font-weight: bold;
+        margin-bottom: 20px;
+    }
+</style>
+
+<div class="auth-wrapper">
+
+    <div class="auth-card">
+
+        <h3 class="auth-title">ĐĂNG KÝ</h3>
+
+        <form method="post">
+
+            <div class="row">
+
+                <div class="col-md-6 mb-3">
+                    <label>Họ tên</label>
+                    <input type="text" name="HoTenKH" class="form-control" />
+                </div>
+
+                <div class="col-md-6 mb-3">
+                    <label>Email</label>
+                    <input type="email" name="EmailKH" class="form-control" />
+                </div>
+
+            </div>
+
+            <div class="mb-3">
+                <label>Số điện thoại</label>
+                <input type="text" name="SoDienThoaiKH" class="form-control" />
+            </div>
+
+            <div class="mb-3">
+                <label>Địa chỉ</label>
+                <input type="text" name="DiaChiKH" class="form-control" />
+            </div>
+
+            <div class="row">
+
+                <div class="col-md-6 mb-3">
+                    <label>Tên đăng nhập</label>
+                    <input type="text" name="TenDangNhapKH" class="form-control" />
+                </div>
+
+                <div class="col-md-6 mb-3">
+                    <label>Mật khẩu</label>
+                    <input type="password" name="MatKhauKH" class="form-control" />
+                </div>
+
+            </div>
+
+            <button type="submit" class="btn btn-success w-100">
+                <i class="fa fa-user-plus"></i> Đăng ký
+            </button>
+
+            <div class="text-center mt-3">
+                <a href="@Url.Action("Dangnhap","Nguoidung")">
+                    Đã có tài khoản? Đăng nhập
+                </a>
+            </div>
+
+        </form>
+
+    </div>
+
+</div>

@@ -32,34 +32,36 @@
                 <!-- ACCOUNT -->
                 <div class="order-lg-last col-lg-5 col-sm-8 col-8">
 
-                    <div class="d-flex float-end">
+                    <div class="d-flex justify-content-end align-items-center gap-2">
 
-                        <a href="#"
-                           class="me-2 border rounded py-2 px-3 nav-link d-flex align-items-center">
+                        <!-- LOGIN -->
+                        <a href="@Url.Action("Dangnhap","Nguoidung")"
+                           class="border rounded py-2 px-3 nav-link d-flex align-items-center bg-white shadow-sm">
 
-                            <i class="fas fa-user-alt me-2"></i>
+                            <i class="fas fa-user-alt me-2 text-primary"></i>
                             <span>Login</span>
 
                         </a>
 
+                        <!-- WISHLIST -->
                         <a href="#"
-                           class="me-2 border rounded py-2 px-3 nav-link d-flex align-items-center">
+                           class="border rounded py-2 px-3 nav-link d-flex align-items-center bg-white shadow-sm">
 
-                            <i class="fas fa-heart me-2"></i>
+                            <i class="fas fa-heart me-2 text-danger"></i>
                             <span>Wishlist</span>
 
                         </a>
 
+                        <!-- CART -->
                         <a href="@Url.Action("GioHang","GioHang")"
-                           class="border rounded py-2 px-3 nav-link d-flex align-items-center">
+                           class="border rounded py-2 px-3 nav-link d-flex align-items-center bg-white shadow-sm position-relative">
 
-                            <i class="fas fa-shopping-cart me-2"></i>
+                            <i class="fas fa-shopping-cart me-2 text-success"></i>
                             <span>Cart</span>
 
                         </a>
 
                     </div>
-
                 </div>
 
                 <!-- SEARCH -->

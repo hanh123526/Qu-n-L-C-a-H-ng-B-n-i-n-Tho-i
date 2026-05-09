@@ -29,5 +29,22 @@ namespace Quản_Lý_Cửa_Hàng_Bán_Điện_Thoại.Controllers
 
             return View(sp);
         }
+        public ActionResult TimKiem(string tukhoa)
+        {
+            // kiểm tra null hoặc rỗng
+            if (string.IsNullOrWhiteSpace(tukhoa))
+            {
+                return View(db.SanPhams.ToList());
+            }
+
+            var kq = db.SanPhams
+                       .Where(sp => sp.TenSP != null
+                                 && sp.TenSP.Contains(tukhoa))
+                       .ToList();
+
+            ViewBag.TuKhoa = tukhoa;
+
+            return View(kq);
+        }
     }
 }

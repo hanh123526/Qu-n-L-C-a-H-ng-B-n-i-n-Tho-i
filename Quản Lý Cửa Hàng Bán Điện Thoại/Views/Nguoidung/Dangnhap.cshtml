@@ -1,0 +1,75 @@
+﻿@{
+    ViewBag.Title = "Đăng nhập";
+    Layout = "~/Views/Shared/_LayoutUser.cshtml";
+}
+
+<style>
+    .auth-wrapper {
+        height: 100vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background: linear-gradient(135deg, #74ebd5, #9face6);
+    }
+
+    .auth-card {
+        width: 420px;
+        background: #fff;
+        padding: 30px;
+        border-radius: 15px;
+        box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+    }
+
+    .auth-title {
+        text-align: center;
+        font-weight: bold;
+        margin-bottom: 20px;
+    }
+
+    .form-control {
+        border-radius: 10px;
+    }
+
+    .btn-primary {
+        border-radius: 10px;
+        font-weight: 500;
+    }
+</style>
+
+<div class="auth-wrapper">
+
+    <div class="auth-card">
+
+        <h3 class="auth-title">ĐĂNG NHẬP</h3>
+
+        <form method="post">
+
+            <div class="mb-3">
+                <label>Tên đăng nhập</label>
+                <input type="text" name="TenDangNhapKH" class="form-control" placeholder="Username" />
+            </div>
+
+            <div class="mb-3">
+                <label>Mật khẩu</label>
+                <input type="password" name="MatKhauKH" class="form-control" placeholder="Password" />
+            </div>
+
+            <div class="text-danger text-center mb-2">
+                @ViewBag.Thongbao
+            </div>
+
+            <button type="submit" class="btn btn-primary w-100">
+                <i class="fa fa-sign-in-alt"></i> Đăng nhập
+            </button>
+
+            <div class="text-center mt-3">
+                <a href="@Url.Action("Dangky","Nguoidung")">
+                    Chưa có tài khoản? Đăng ký
+                </a>
+            </div>
+
+        </form>
+
+    </div>
+
+</div>

@@ -1,0 +1,64 @@
+﻿@{
+    ViewBag.Title = "Xác nhận đơn hàng";
+    Layout = "~/Views/Shared/_LayoutUser.cshtml";
+}
+
+<style>
+    .xacnhan-box {
+        width: 70%;
+        margin: 80px auto;
+        background: white;
+        padding: 50px;
+        text-align: center;
+        border-radius: 10px;
+        box-shadow: 0 0 15px rgba(0,0,0,0.1);
+    }
+
+        .xacnhan-box h2 {
+            color: #7fad39;
+            font-size: 40px;
+            margin-bottom: 20px;
+        }
+
+        .xacnhan-box p {
+            font-size: 22px;
+            color: #333;
+        }
+
+    .btn-home {
+        margin-top: 30px;
+        display: inline-block;
+        background: #7fad39;
+        color: white;
+        padding: 12px 25px;
+        border-radius: 5px;
+        text-decoration: none;
+        font-weight: bold;
+    }
+
+        .btn-home:hover {
+            background: #6a9630;
+            color: white;
+            text-decoration: none;
+        }
+</style>
+
+<div class="xacnhan-box">
+
+    <h2>ĐẶT HÀNG THÀNH CÔNG</h2>
+
+    <p>
+        Đơn hàng của quý khách đã được ghi nhận trong hệ thống SQL Server (DienThoaiDiDong).
+    </p>
+
+    <p>
+        Cảm ơn bạn đã mua sắm tại cửa hàng điện thoại của chúng tôi 📱
+    </p>
+
+    <a class="btn-home"
+       href="@Url.Action("Index","SanPham")">
+
+        TIẾP TỤC MUA SẮM
+    </a>
+
+</div>

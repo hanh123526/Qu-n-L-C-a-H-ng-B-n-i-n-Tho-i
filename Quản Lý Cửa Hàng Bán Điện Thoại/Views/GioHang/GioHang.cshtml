@@ -1,0 +1,125 @@
+﻿@model List<Quản_Lý_Cửa_Hàng_Bán_Điện_Thoại.Models.Giohang>
+
+@{
+    ViewBag.Title = "Giỏ Hàng";
+    Layout = "~/Views/Shared/_LayoutUser.cshtml";
+}
+
+<h2 style="text-align:center; margin-bottom:20px;">
+    THÔNG TIN GIỎ HÀNG
+</h2>
+
+<table class="table table-bordered text-center">
+
+    <tr style="background:#f5f5f5; font-weight:bold;">
+        <td>Mã SP</td>
+        <td>Tên sản phẩm</td>
+        <td>Hình ảnh</td>
+        <td>Số lượng</td>
+        <td>Đơn giá</td>
+        <td>Thành tiền</td>
+        <td>Chi tiết</td>
+        <td>Xóa</td>
+        <td>Cập nhật</td>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+
+            @using (Html.BeginForm("CapNhatGiohang",
+                                   "Giohang",
+                                   new { iMaSP = item.iMaSP }))
+            {
+
+                <td>@item.iMaSP</td>
+
+                <td>@item.sTenSP</td>
+
+                <td>
+                    <img src="@Url.Content("~/HinhDienThoai/" + item.sHinhAnh)"
+                         width="100"
+                         class="img-thumbnail" />
+                </td>
+
+                <td>
+                    <input type="number"
+                           min="1"
+                           name="txtSoLuong"
+                           value="@item.iSoLuong"
+                           style="width:70px; text-align:center;" />
+                </td>
+
+                <td style="color:red; font-weight:bold;">
+                    @String.Format("{0:0,0}", item.dDonGia) VNĐ
+                </td>
+
+                <td style="color:blue; font-weight:bold;">
+                    @String.Format("{0:0,0}", item.dThanhTien) VNĐ
+                </td>
+
+                <td>
+                    <a href="@Url.Action("ChiTiet",
+                                         "SanPham",
+                                         new { id = item.iMaSP })"
+                       class="btn btn-info btn-sm">
+                        Chi tiết
+                    </a>
+                </td>
+
+                <td>
+                    <a href="@Url.Action("XoaGiohang",
+                                         "Giohang",
+                                         new { iMaSP = item.iMaSP })"
+                       class="btn btn-danger btn-sm">
+                        Xóa
+                    </a>
+                </td>
+
+                <td>
+                    <input type="submit"
+                           value="Cập nhật"
+                           class="btn btn-success btn-sm" />
+                </td>
+            }
+
+        </tr>
+    }
+
+    <tr style="font-weight:bold; color:red;">
+        <td colspan="4" style="text-align:right;">
+            Tổng số lượng:
+        </td>
+
+        <td colspan="5" style="text-align:left;">
+            @ViewBag.TongSoLuong
+        </td>
+    </tr>
+
+    <tr style="font-weight:bold; color:blue;">
+        <td colspan="4" style="text-align:right;">
+            Tổng tiền:
+        </td>
+
+        <td colspan="5" style="text-align:left;">
+            @String.Format("{0:0,0}", ViewBag.TongTien) VNĐ
+        </td>
+    </tr>
+
+    <tr>
+        <td colspan="9" style="text-align:right;">
+
+            <a href="@Url.Action("XoaTatCaGiohang","Giohang")"
+               class="btn btn-danger">
+                Xóa tất cả
+            </a>
+
+            <a href="@Url.Action("DatHang","Giohang")"
+               class="btn btn-primary">
+                Đặt hàng
+            </a>
+
+        </td>
+    </tr>
+
+</table>
